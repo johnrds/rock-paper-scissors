@@ -3,7 +3,6 @@ let gameChoices = ['rock', 'paper', 'scissors'];
 let getComputerChoice = () => gameChoices[Math.floor(Math.random() * 3)];
 
 function playJoKenPo(userChoice, computerChoice) {
-    userChoice = userChoice.toLowerCase();
 
     if (userChoice === computerChoice) return 'Draw!'
 
@@ -32,7 +31,39 @@ function playJoKenPo(userChoice, computerChoice) {
     }
 }
 
-const playerChoice = 'rock';
-const computerChoice = getComputerChoice();
+function game() {
+    playRound(prompt("Please select either Rock, Paper or Scissors to play 5 rounds of JoKenPo"));
+}
 
-console.log(playJoKenPo(playerChoice, computerChoice));
+function playRound(userChoice) {
+    let winCount = 0
+        , lossCount = 0
+        , drawsCount = 0
+        , finalResult;
+
+    userChoice = userChoice.toLowerCase();
+
+    if (userChoice != 'rock' && userChoice != 'paper' && userChoice != 'scissors') {
+        alert(`Not a valid choice, please select either 'Rock', 'Paper' or 'Scissors' only (case insensitive)`);
+        return;
+    }
+
+    for (let i = 1; i <= 5; i++) {
+        const roundResult = playJoKenPo(userChoice, getComputerChoice());
+        roundResult.includes('Draw')
+            ? drawsCount++
+            : roundResult.includes('Won')
+                ? winCount++
+                : lossCount++;
+    }
+
+    finalResult = `Final Result (Wins/Losses/Draws): \n${winCount}/ ${lossCount}/ ${drawsCount}\n`;
+
+    winCount > lossCount
+        ? finalResult += 'You Won!!'
+        : winCount === lossCount
+            ? finalResult += 'Draw!!'
+            : finalResult += 'You Lose!!';
+
+    console.log(finalResult);
+}
