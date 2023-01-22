@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -27,35 +26,46 @@
                     <li>Scissors cuts paper</li>
                     <li>Paper covers Rock</li>
                 </ul>
-                <li>You can see the rounds results under the icons</li>
-                <li>The first to win 5 rounds wins the game</li>
+                <li>You can see the rounds results at Results panel</li>
             </ol>
         </div>
-        <button>Start Game</button>
-        <div class="game">
+        <button class="startBtn">Start Game</button>
+        <div class="game hidden">
+            <div class="choices">
                 <div class="playerChoice">
-                    <div class="rock">
+                    <h2>Select an icon</h2>
+                    <div class="icon" id="rock">
                         <img src="./img/icon-rock.svg" alt="Rock icon"><br>Rock
                     </div>
-                    <div class="paper">
-                        <img src="./img/icon-paper.svg"     alt="Paper icon"><br>Paper
-                     </div>
-                     <div class="scissors">
+                    <div class="icon" id="paper">
+                        <img src="./img/icon-paper.svg" alt="Paper icon"><br>Paper
+                    </div>
+                    <div class="icon" id="scissors">
                         <img src="./img/icon-scissors.svg" alt="Scissors icon"><br>Scissors
                     </div>
                 </div>
+                <p class="versus">X</p>
                 <div class="computerChoice">
-                    <h2>ComputerChoice</h2>
+                    <h2>Computer Choice</h2>
                 </div>
+            </div>
+            <div class="result">
+                <h2>Results</h2>
+                <ul>
+                    <li class="win">Wins: 0</li>
+                    <li class="loss">Losses: 0</li>
+                    <li class="draw">Draw: 0</li>
+                </ul>
+            </div>
+            <button class="newGameBtn">Start New Game</button>
         </div>
-        <div class="result">
-        </div>
-
     </main>
     <footer>
         <p>Copyright © <a href="https://www.theodinproject.com/about"> The Odin Project 2023</a></p>
-        <p>Icons by <a href="https://thenounproject.com/cristiano.zoucas/">Cristiano Zoucas from Noun Project</a></p>     
+        <p>Icons by <a href="https://thenounproject.com/cristiano.zoucas/">Cristiano Zoucas from Noun Project</a></p>
     </footer>
 </body>
+
+<script type="text/javascript" src="./script.js"></script>
 
 </html>
