@@ -5,35 +5,35 @@
     <title>JoKenPo</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <header>
-        <h2 class="title">Rock, Paper Scissors Game</h2>
+        <h1 class="title">Rock, Paper Scissors Game</h1>
     </header>
-    <main class="container">
-        <div class="howToPlay">
-            <h2>How to Play</h2>
-            <ol>
-                <li>Click on the icon you want to play the round</li>
-                <li>A random choice from the computer will appear on the right side</li>
-                <li>The rule to decide the winner is pretty simple:</li>
-                <ul>
-                    <li>Same icon it's a draw</li>
-                    <li>Rock crushes Scissors</li>
-                    <li>Scissors cuts paper</li>
-                    <li>Paper covers Rock</li>
-                </ul>
-                <li>You can see the rounds results at Results panel</li>
-            </ol>
-        </div>
-        <button class="startBtn">Start Game</button>
-        <div class="game hidden">
-            <div class="choices">
-                <div class="playerChoice">
-                    <h2>Select an icon</h2>
+    <main>
+        <div class="container">
+            <div class="howToPlay">
+                <h2>How to Play</h2>
+                <ol>
+                    <li>Click on the icon you want to play the round</li>
+                    <li>A random choice from the computer will appear on the right side</li>
+                    <li>The rule to decide the winner is pretty simple:</li>
+                    <ul>
+                        <li>Same choice it's a draw</li>
+                        <li>Rock crushes Scissors</li>
+                        <li>Scissors cuts paper</li>
+                        <li>Paper covers Rock</li>
+                    </ul>
+                    <li>You can see the rounds results at Results panel</li>
+                    <li>The first to win five rounds wins the game</li>
+                </ol>
+            </div>
+            <button class="startBtn">Start Game</button>
+            <div class="game hidden">
+                <h2 class="subtitle">Select an icon</h2>
+                <div class="choices">
                     <div class="icon" id="rock">
                         <img src="./img/icon-rock.svg" alt="Rock icon"><br>Rock
                     </div>
@@ -44,28 +44,28 @@
                         <img src="./img/icon-scissors.svg" alt="Scissors icon"><br>Scissors
                     </div>
                 </div>
-                <p class="versus">X</p>
-                <div class="computerChoice">
-                    <h2>Computer Choice</h2>
+                <div class="round">
+                    <div class="playerChoice">
+                        <h2>Player</h2>
+                    </div>
+                    <p class="versus">X</p>
+                    <div class="computerChoice">
+                        <h2>Computer</h2>
+                    </div>
+                </div>
+                <div class="result">
+                        <div class="win">Wins: 0</div>
+                        <div class="draw">Draws: 0</div>
+                        <div class="loss">Losses: 0</div>
                 </div>
             </div>
-            <div class="result">
-                <h2>Results</h2>
-                <ul>
-                    <li class="win">Wins: 0</li>
-                    <li class="loss">Losses: 0</li>
-                    <li class="draw">Draw: 0</li>
-                </ul>
-            </div>
-            <button class="newGameBtn">Start New Game</button>
         </div>
     </main>
     <footer>
         <p>Copyright © <a href="https://www.theodinproject.com/about"> The Odin Project 2023</a></p>
-        <p>Icons by <a href="https://thenounproject.com/cristiano.zoucas/">Cristiano Zoucas from Noun Project</a></p>
+        <p>Icons by <a href="https://thenounproject.com/cristiano.zoucas/">Cristiano Zoucas</a></p>
     </footer>
 </body>
-
 <script type="text/javascript" src="./script.js"></script>
 
 </html>

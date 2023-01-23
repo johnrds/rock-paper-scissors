@@ -1,78 +1,82 @@
-const startBtn = document.querySelector('.startBtn');
-const rulesDiv = document.querySelector('.howToPlay');
-const gameDiv = document.querySelector('.game');
-const icons = document.querySelectorAll('.icon');
-const restartBtn = document.querySelector('.newGameBtn');
-const computerIcon = document.querySelector('.computerChoice');
-const result = document.querySelector('.result');
+const startBtn = document.querySelector('.startBtn')
+    , rulesDiv = document.querySelector('.howToPlay')
+    , gameDiv = document.querySelector('.game')
+    , icons = document.querySelectorAll('.icon')
+    , computerIcon = document.querySelector('.computerChoice')
+    , playerIcon = document.querySelector('.playerChoice')
+    , result = document.querySelector('.roundResult');
 
-let wins
-    , loss
-    , draws
+let wins = 0
+    , loss = 0
+    , draws = 0;
 
 startBtn.addEventListener('click', () => {
     startBtn.classList.add('hidden');
     rulesDiv.classList.add('hidden');
-    restartBtn.classList.add('hidden');
     gameDiv.classList.remove('hidden');
     wins = 0;
     loss = 0;
     draws = 0;
 });
 
-const gameChoices = ['rock', 'paper', 'scissors'];
-let gameRunning = false;
 icons.forEach(icon => {
     icon.addEventListener('click', () => {
-        if (gameRunning) return;
-        icon.classList.add('selected');
-        const ComputerImg = document.createElement('img');
-        ComputerImg.classList.add('computerImg');
+        const computerChoice = getComputerChoice()
+            , result = JokenpoRound(icon.id, computerChoice);
 
-        let computerChoice = gameChoices[Math.floor(Math.random() * 3)];
-        ComputerImg.src = `./img/icon-${computerChoice}.svg`
-        ComputerImg.alt = `${computerChoice} Icon`
-        computerIcon.appendChild(ComputerImg);
-
-        const resultPara = document.createElement('p');
-        resultPara.classList.add('resultPara');
-        resultPara.textContent = playJoKenPo(icon.id, computerChoice);
-        updateResults(resultPara.textContent);
-
-        result.appendChild(resultPara);
-        restartBtn.classList.remove('hidden');
-        gameRunning = true;
-    });
+        updateIcons(icon.id, computerChoice);
+        updateResults(result);
+    })
 });
 
-restartBtn.addEventListener('click', () => {
-    gameRunning = false;
-    result.removeChild(document.querySelector('.resultPara'));
-    computerIcon.removeChild(document.querySelector('.computerImg'))
-    icons[0].classList.remove('selected');
-    icons[1].classList.remove('selected');
-    icons[2].classList.remove('selected');
-    restartBtn.classList.add('hidden');
-});
+function getComputerChoice() {
+    const gameChoices = ['rock', 'paper', 'scissors'];
+    return gameChoices[Math.floor(Math.random() * 3)];
+};
 
-function updateResults(e) {
+function updateIcons(player, cpu) {
+    const previousIcons = document.querySelectorAll('.iconImg');
+    if (previousIcons.length !== 0) {
+        previousIcons[0].remove();
+        previousIcons[1].remove();
+    };
+
+    const computerImg = document.createElement('img');
+    computerImg.classList.add('iconImg');
+    computerImg.src = `./img/icon-${cpu}.svg`
+    computerImg.alt = `${cpu} Icon`
+    computerImg.style.margin = '0px 50px';
+    computerIcon.appendChild(computerImg);
+
+    const playerImg = document.createElement('img');
+    playerImg.classList.add('iconImg');
+    playerImg.src = `./img/icon-${player}.svg`
+    playerImg.alt = `${player} Icon`
+    playerImg.style.margin = '0px 50px';
+    playerIcon.appendChild(playerImg);
+};
+
+function updateResults(result) {
     let winCount = document.querySelector('.win')
         , lossCount = document.querySelector('.loss')
         , drawsCount = document.querySelector('.draw');
 
-    if (e.includes('Draw')) {
+    const roundResult = document.querySelector('.subtitle');
+    roundResult.innerHTML = result;
+
+    if (result.includes('Draw')) {
         draws++
-        drawsCount.innerHTML = `Draws: ${draws}`
-    } else if (e.includes('Lose')) {
+        drawsCount.textContent = `Draws: ${draws}`
+    } else if (result.includes('Lose')) {
         loss++
-        lossCount.innerHTML = `Losses: ${loss}`
+        lossCount.textContent = `Losses: ${loss}`
     } else {
         wins++
-        winCount.innerHTML = `Wins: ${wins}`
+        winCount.textContent = `Wins: ${wins}`
     }
 }
 
-function playJoKenPo(userChoice, computerChoice) {
+function JokenpoRound(userChoice, computerChoice) {
 
     if (userChoice === computerChoice) return 'Draw!'
 

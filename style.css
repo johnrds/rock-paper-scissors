@@ -1,170 +1,166 @@
-*
-,*::after
-,*::before{
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     font: inherit;
+    color: hsl(0, 0%, 80%);
 }
 
-html{
-    width: 100%;
-}
-
-body{
+body {
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
 }
 
-body >*{
+body>* {
     width: 100%;
 }
 
-header,
-footer{
-    background-color: hsl(0, 18%, 97%);
-    display: flex;
-    justify-content: center;
-    padding-block: 20px;
-    column-gap: 20px;
-    text-align: center;
-}
-
-header h2{
-    font-size: 26px;
-}
-
-footer p{
-    font-size: 12px;
-}
-
-a{
-    color: hsl(240, 3%, 10%);
+a {
+    color: hsl(0, 0%, 40%);
     text-decoration: none;
 }
 
-a:hover{
-    color: hsl(240, 3%, 50%);
+a:hover {
+    color: hsl(0, 0%, 30%);
 }
 
-.container{
-    width: 90%;
+header,
+footer {
+    background-color: hsl(213, 31%, 6%);
+    padding-block: 20px;
+    text-align: center;
+}
+
+footer{
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    margin: 15px;
+}
+
+footer p {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+main {
+    background-color: hsl(216, 18%, 20%);
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-block: 50px;
+    padding-block: 20px;
 }
 
-.howToPlay{
-    border: 1px solid black;
+.howToPlay {
+    border: 2px solid hsl(213, 31%, 6%);
     padding: 15px;
     margin-bottom: 50px;
 }
 
-.howToPlay h2{
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.howToPlay ol{
+.howToPlay ol {
     margin-left: 20px;
 }
 
-.howToPlay ul{
+.howToPlay ul {
     margin-left: 45px;
     list-style: disc;
     font-size: 14px;
     margin-block: 5px;
 }
 
-.choices{
+.game {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 30px;
+    flex-direction: column;
 }
 
-.choices h2{
-    font-size: 16px;
-    margin: 5px;
-    justify-self: flex-start;
-}
-
-.choices .playerChoice{
+.choices {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 5vw;
+}
+
+.icon {
+    background-color: hsl(216, 29%, 10%);
     border: 1px solid black;
-    height: 19vw;
-    padding-inline: 15px;
-}
-
-.icon.selected{
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
     cursor: pointer;
-    transform: scale(1.1);
-    transition: 0.7s ease;
 }
 
-.versus{
+.icon:hover{
+    background-color: hsl(216, 29%, 15%);
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.round {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.versus {
     font-size: 4em;
 }
 
-.computerChoice{
-    border: 1px solid black;
-    min-height: 19vw;
-    max-height: 20vw;
-    min-width: 11vw;
-    max-width: 40vw;
+.computerChoice,
+.playerChoice {
+    background-color: hsl(216, 29%, 10%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}  
-
-img{
-    width: 10vw ;
-    height: 10vw;;
-}
-
-.result{
-    text-align: center;
-    font-size: 18px;
-    margin-top: 50px;
-    width: 100%;
-    min-height: 20vh;
     border: 1px solid black;
+    border-radius: 25px;
+    height: 200px;
+    width: 200px;
 }
 
-.result h2{
-    margin: 10px auto;
+.result {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 20px;
 }
 
-.result ul{
-    list-style: none;
-    text-align: left;
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-
-.newGameBtn{
-    margin: 10px auto;
-}
-
-.hidden{
-    clip: rect(0 0 0 0); 
+.hidden {
+    clip: rect(0 0 0 0);
     clip-path: inset(50%);
     height: 1px;
     overflow: hidden;
     position: absolute;
-    white-space: nowrap; 
+    white-space: nowrap;
     width: 1px;
+}
+
+button{
+    cursor: pointer;
+    background-color: hsl(216, 29%, 10%);
+    padding: 5px;
 }
