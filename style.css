@@ -162,5 +162,33 @@ img {
 button{
     cursor: pointer;
     background-color: hsl(216, 29%, 10%);
-    padding: 5px;
+    padding: 10px;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 0%, 0.4);
+}
+
+.restartMsg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    position: fixed;
+    top: calc(50% - 100px);
+    left: calc(50% - 125px);
+    height: 200px;
+    width: 250px;
+    background-color: hsl(216, 18%, 16%);
+    border-radius: 25px;
+    border: 2px solid black;
 }

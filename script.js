@@ -4,7 +4,14 @@ const startBtn = document.querySelector('.startBtn')
     , icons = document.querySelectorAll('.icon')
     , computerIcon = document.querySelector('.computerChoice')
     , playerIcon = document.querySelector('.playerChoice')
-    , result = document.querySelector('.roundResult');
+    , result = document.querySelector('.roundResult')
+    , restartBtn = document.querySelector('.restartBtn')
+    , restartMsg = document.querySelector('.restartMsg')
+    , overlay = document.querySelector('.overlay')
+    , winCount = document.querySelector('.win')
+    , lossCount = document.querySelector('.loss')
+    , drawsCount = document.querySelector('.draw')
+    , roundResult = document.querySelector('.subtitle');
 
 let wins = 0
     , loss = 0
@@ -14,10 +21,21 @@ startBtn.addEventListener('click', () => {
     startBtn.classList.add('hidden');
     rulesDiv.classList.add('hidden');
     gameDiv.classList.remove('hidden');
+});
+
+restartBtn.addEventListener('click', () => {
+    overlay.classList.add('hidden');
+    restartMsg.classList.add('hidden');
     wins = 0;
     loss = 0;
     draws = 0;
-});
+    drawsCount.textContent = `Draws: ${draws}`;
+    lossCount.textContent = `Losses: ${loss}`;
+    winCount.textContent = `Wins: ${wins}`;
+    roundResult.textContent = "Select an icon";
+    document.querySelectorAll('.iconImg')[0].remove();
+    document.querySelectorAll('.iconImg')[0].remove();
+})
 
 icons.forEach(icon => {
     icon.addEventListener('click', () => {
@@ -57,11 +75,8 @@ function updateIcons(player, cpu) {
 };
 
 function updateResults(result) {
-    let winCount = document.querySelector('.win')
-        , lossCount = document.querySelector('.loss')
-        , drawsCount = document.querySelector('.draw');
+    const lastMsg = document.querySelector('.resultMsg');
 
-    const roundResult = document.querySelector('.subtitle');
     roundResult.innerHTML = result;
 
     if (result.includes('Draw')) {
@@ -73,6 +88,15 @@ function updateResults(result) {
     } else {
         wins++
         winCount.textContent = `Wins: ${wins}`
+    }
+
+    if (wins === 5 || loss === 5) {
+        if (wins === 5) {
+            lastMsg.textContent = "You Won!!"
+        }
+        else { lastMsg.textContent = "You Lose!!" }
+        restartMsg.classList.remove('hidden');
+        overlay.classList.remove('hidden');
     }
 }
 
