@@ -63,14 +63,14 @@ function updateIcons(player, cpu) {
     computerImg.classList.add('iconImg');
     computerImg.src = `./img/icon-${cpu}.svg`
     computerImg.alt = `${cpu} Icon`
-    computerImg.style.margin = '0px 50px';
+    //computerImg.style.margin = '0px 50px';
     computerIcon.appendChild(computerImg);
 
     const playerImg = document.createElement('img');
     playerImg.classList.add('iconImg');
     playerImg.src = `./img/icon-${player}.svg`
     playerImg.alt = `${player} Icon`
-    playerImg.style.margin = '0px 50px';
+    //playerImg.style.margin = '0px 50px';
     playerIcon.appendChild(playerImg);
 };
 
