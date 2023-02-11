@@ -1,4 +1,9 @@
-# rock-paper-scissors
+# Rock, Paper, Scissors game
+
+## About
 A JavaScript project to create a web version of the rock, paper scissors game.
 
-This was made as a part of The Odin Project curriculum, if you want to know more about TOP, visit https://www.theodinproject.com/about.
+## Links
+[View on GitHub Pages](https://johnrds.github.io/rock-paper-scissors/)
+
+This was made as a part of The Odin Project curriculum, [Click here](https://www.theodinproject.com/about) to know more about TOP.
